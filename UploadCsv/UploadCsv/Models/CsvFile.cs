@@ -16,6 +16,7 @@ namespace UploadCsv.Models
         {
             this.FileName = fileName;
             this.FileContent = new byte[fileContent.Length];
+            this.LastModified = DateTime.UtcNow;
             Array.Copy(fileContent, FileContent, fileContent.Length);
         }
     }

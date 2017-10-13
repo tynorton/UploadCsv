@@ -13,10 +13,11 @@ DROP PROCEDURE [dbo].[AddCsvFile];
 GO
 CREATE PROCEDURE [dbo].[AddCsvFile]
 	@fileName nvarchar(128),
-	@fileContent varbinary(MAX)
+	@fileContent varbinary(MAX),
+    @fileModified datetime2
 AS
 	INSERT INTO dbo.CsvFile
-	([FileName], [FileContent])
+	([FileName], [FileContent], [LastModified])
 	VALUES
-	(@fileName, @fileContent)
+	(@fileName, @fileContent, @fileModified)
 RETURN 0

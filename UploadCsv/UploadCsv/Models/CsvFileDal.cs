@@ -40,6 +40,9 @@ namespace UploadCsv.Models
                 paramFileContent.SqlDbType = SqlDbType.VarBinary;
                 paramFileContent.Size = fileContent.Length;
 
+                SqlParameter paramFileModified = cmd.Parameters.AddWithValue("@fileModified", csvFile.LastModified);
+                paramFileModified.SqlDbType = SqlDbType.DateTime2;
+
                 sql.Open();
                 cmd.ExecuteScalar();
             }
